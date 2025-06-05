@@ -1,0 +1,242 @@
+#!/usr/bin/env bash
+
+###############################################################################
+# JORDAAAN: Personal AI Development Customizations
+# Place this file as ~/.jordaaan in your home directory
+###############################################################################
+
+# Setup variables
+SETUP_ROOT=$HOME/.supabowl
+SUPABOWL_WORKSPACE=$HOME/supabowl-workspace
+
+# AI Development Directories
+AI_DIRECTORIES=(
+  $SUPABOWL_WORKSPACE/newsense-projects/personal
+  $SUPABOWL_WORKSPACE/newsense-projects/work
+  $SUPABOWL_WORKSPACE/newsense-projects/experiments
+  $SUPABOWL_WORKSPACE/believe-configs/templates
+  $SUPABOWL_WORKSPACE/believe-configs/custom
+  $SUPABOWL_WORKSPACE/models/llama
+  $SUPABOWL_WORKSPACE/models/claude
+  $SUPABOWL_WORKSPACE/models/openai
+  $SUPABOWL_WORKSPACE/datasets/training
+  $SUPABOWL_WORKSPACE/datasets/testing
+  $SUPABOWL_WORKSPACE/datasets/validation
+  $SUPABOWL_WORKSPACE/notebooks/research
+  $SUPABOWL_WORKSPACE/notebooks/tutorials
+  $SUPABOWL_WORKSPACE/screenshots
+  $SUPABOWL_WORKSPACE/demos
+)
+
+# Additional AI Python packages
+AI_PYTHON_PACKAGES=(
+  "langchain"
+  "streamlit"
+  "gradio"
+  "huggingface-hub"
+  "datasets"
+  "tokenizers"
+  "accelerate"
+  "peft"
+  "bitsandbytes"
+  "wandb"
+  "mlflow"
+  "tensorboard"
+)
+
+# Additional Node.js packages for AI development
+AI_NODE_PACKAGES=(
+  "@anthropic-ai/sdk"
+  "openai"
+  "@langchain/core"
+  "@langchain/anthropic"
+  "@langchain/openai"
+  "tiktoken"
+)
+
+# Font installations for better terminal/coding experience
+NERDFONTS=(
+  "FiraCode"
+  "JetBrainsMono"
+  "Hack"
+  "SpaceMono"
+  "AnonymousPro"
+)
+
+###############################################################################
+# Create AI Development Directories
+###############################################################################
+step "Creating Jordaaan AI development directories…"
+for dir in ${AI_DIRECTORIES[@]}; do
+  if [ ! -d "$dir" ]; then
+    mkdir -p "$dir"
+    print_success "Created: $dir"
+  else
+    print_success_muted "Already exists: $dir"
+  fi
+done
+
+###############################################################################
+# Install Additional AI Python Packages
+###############################################################################
+step "Installing Jordaaan AI Python packages…"
+for package in ${AI_PYTHON_PACKAGES[@]}; do
+  if pip show "$package" >/dev/null 2>&1; then
+    print_success_muted "$package already installed"
+  else
+    print_warning "Installing $package..."
+    pip install "$package"
+    print_success "$package installed!"
+  fi
+done
+
+###############################################################################
+# Install Additional Node.js AI Packages
+###############################################################################
+step "Installing Jordaaan AI Node.js packages…"
+for package in ${AI_NODE_PACKAGES[@]}; do
+  if npm list -g "$package" >/dev/null 2>&1; then
+    print_success_muted "$package already installed"
+  else
+    print_warning "Installing $package globally..."
+    npm install -g "$package"
+    print_success "$package installed!"
+  fi
+done
+
+###############################################################################
+# Install Nerd Fonts for Better Development Experience
+###############################################################################
+step "Installing Nerd Fonts for better terminal experience…"
+for font in ${NERDFONTS[@]}; do
+  if [ ! -d "$HOME/Library/Fonts/$font" ]; then
+    printf "${indent} [↓] $font "
+    curl -fLo "$HOME/Library/Fonts/$font.zip" \
+      "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/$font.zip"
+    unzip -q "$HOME/Library/Fonts/$font.zip" -d "$HOME/Library/Fonts/$font/"
+    rm "$HOME/Library/Fonts/$font.zip"
+    print_in_green "${bold}✓ installed!${normal}\n"
+  else
+    print_muted "${indent}✓ $font already installed."
+  fi
+done
+
+###############################################################################
+# Configure Git for AI Development
+###############################################################################
+step "Configuring Git for AI development…"
+git config --global core.editor "code --wait"
+git config --global init.defaultBranch "main"
+git config --global pull.rebase false
+
+# Git LFS for large model files
+git lfs install
+
+# Useful Git aliases for AI projects
+git config --global alias.ai-commit "commit -m 'AI: '"
+git config --global alias.model-add "add *.pkl *.h5 *.pth *.safetensors"
+git config --global alias.data-add "add *.csv *.json *.jsonl"
+
+print_success "Git configured for AI development!"
+
+###############################################################################
+# Set Up Environment Variables
+###############################################################################
+step "Setting up AI development environment variables…"
+
+# Add to .zshrc or .bash_profile
+SHELL_CONFIG="$HOME/.zshrc"
+if [ ! -f "$SHELL_CONFIG" ]; then
+  SHELL_CONFIG="$HOME/.bash_profile"
+fi
+
+# Add AI development paths
+echo "# Jordaaan AI Development Environment" >> "$SHELL_CONFIG"
+echo "export SUPABOWL_WORKSPACE=\"$SUPABOWL_WORKSPACE\"" >> "$SHELL_CONFIG"
+echo "export PYTHONPATH=\"\$PYTHONPATH:\$SUPABOWL_WORKSPACE/newsense-projects\"" >> "$SHELL_CONFIG"
+echo "export PATH=\"\$PATH:\$HOME/.local/bin\"" >> "$SHELL_CONFIG"
+
+# Add pyenv to PATH
+echo "export PATH=\"\$HOME/.pyenv/bin:\$PATH\"" >> "$SHELL_CONFIG"
+echo "eval \"\$(pyenv init -)\"" >> "$SHELL_CONFIG"
+
+print_success "Environment variables configured!"
+
+###############################################################################
+# Create Newsense AI Project Template
+###############################################################################
+step "Creating Newsense AI project template…"
+TEMPLATE_DIR="$SUPABOWL_WORKSPACE/believe-configs/templates/newsense-template"
+
+if [ ! -d "$TEMPLATE_DIR" ]; then
+  mkdir -p "$TEMPLATE_DIR"
+  
+  # Create the newsense project structure
+  mkdir -p "$TEMPLATE_DIR/believe"
+  mkdir -p "$TEMPLATE_DIR/src/llm"
+  mkdir -p "$TEMPLATE_DIR/src/prompt_engineering"
+  mkdir -p "$TEMPLATE_DIR/src/utils"
+  mkdir -p "$TEMPLATE_DIR/handlers"
+  mkdir -p "$TEMPLATE_DIR/data/cache"
+  mkdir -p "$TEMPLATE_DIR/data/prompts"
+  mkdir -p "$TEMPLATE_DIR/data/outputs"
+  mkdir -p "$TEMPLATE_DIR/data/embeddings"
+  mkdir -p "$TEMPLATE_DIR/examples"
+  mkdir -p "$TEMPLATE_DIR/notebooks"
+  
+  # Create basic template files
+  echo "# Newsense AI Project Template" > "$TEMPLATE_DIR/README.md"
+  echo "anthropic" > "$TEMPLATE_DIR/requirements.txt"
+  echo "openai" >> "$TEMPLATE_DIR/requirements.txt"
+  echo "jupyter" >> "$TEMPLATE_DIR/requirements.txt"
+  echo "python-dotenv" >> "$TEMPLATE_DIR/requirements.txt"
+  
+  # Create basic config template
+  cat > "$TEMPLATE_DIR/believe/model_config.yaml" << EOF
+# Newsense AI Model Configuration
+models:
+  claude:
+    api_key: \${ANTHROPIC_API_KEY}
+    model: "claude-3-sonnet-20240229"
+    max_tokens: 4096
+    temperature: 0.7
+  
+  openai:
+    api_key: \${OPENAI_API_KEY}
+    model: "gpt-4"
+    max_tokens: 4096
+    temperature: 0.7
+
+rate_limits:
+  requests_per_minute: 60
+  tokens_per_minute: 100000
+
+cache:
+  enabled: true
+  ttl: 3600  # 1 hour
+EOF
+  
+  print_success "Newsense AI project template created!"
+else
+  print_success_muted "Newsense AI template already exists"
+fi
+
+###############################################################################
+# Final Jordaaan Setup Message
+###############################################################################
+printf "\n"
+printf "╭─────────────────────────────────────────────────────────╮\n"
+printf "│  🎯 Jordaaan customizations applied successfully!       │\n"
+printf "│                                                         │\n"
+printf "│  ✅ AI development directories created                   │\n"
+printf "│  ✅ Advanced AI packages installed                       │\n"
+printf "│  ✅ Nerd Fonts installed for better coding              │\n"
+printf "│  ✅ Git configured for AI projects                       │\n"
+printf "│  ✅ Environment variables set                            │\n"
+printf "│  ✅ Newsense project template ready                      │\n"
+printf "│                                                         │\n"
+printf "│  🚀 Your supabowl AI environment is fully configured!   │\n"
+printf "│                                                         │\n"
+printf "│  Next: Restart your terminal and start building!       │\n"
+printf "╰─────────────────────────────────────────────────────────╯\n"
+printf "\n"
