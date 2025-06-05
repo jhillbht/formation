@@ -1,221 +1,245 @@
-# 🐝 Formation <a href="https://www.patreon.com/minamarkham"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="100"></a>
+# 🤖 Organized-AI: Supabowl AI Development Formation
 
-![Let's get in formation](assets/formation.gif)
-> Formation is a shell script to set up a macOS laptop for design and development.
+> A customized macOS setup script for AI development, based on [Mina Markham's Formation](https://github.com/minamarkham/formation) with personalized naming conventions and AI-specific configurations.
 
-It can be run multiple times on the same machine safely. It installs, upgrades, or skips packages based on what is already installed on the machine.
+**Organized-AI** is a shell script to set up a macOS laptop for AI development and general productivity. It can be run multiple times on the same machine safely. It installs, upgrades, or skips packages based on what is already installed on the machine.
 
-## Install
+## 🎯 What Makes This Different
 
-Download the script:
+This is a **customized fork** of Formation that introduces:
 
-```sh
-git clone git@github.com/minamarkham/formation.git && cd formation
-```
+- **🤖 AI-First Configuration**: Optimized for machine learning and AI development
+- **📁 Newsense Project Structure**: Organized directory structure for AI projects  
+- **⚙️ Believe Configuration System**: Custom config management (renamed from `swag`)
+- **🎨 Jordaaan Personalizations**: Custom user configurations (renamed from `hot-sauce`)
+- **🏠 Supabowl Workspace**: Dedicated development environment setup
+- **🐍 Python AI Stack**: Pre-configured with Claude, OpenAI, Jupyter, PyTorch, and more
 
-Review the script (please don't run scripts you don't understand):
+## 🚀 Quick Start
 
-```sh
-less slay
-```
+### ⚠️ Important Warning
+**I advise against running this script unless you understand what it's doing to your computer.** This is customized based on specific AI development preferences; your mileage may vary.
 
-Slay:
-
-```sh
+### Download the script:
+```bash
+git clone https://github.com/jhillbht/formation.git
 cd formation
-./slay 2>&1 | tee ~/slay.log
+git checkout organized-codebase
 ```
-Just follow the prompts and you’ll be fine. 👌
 
-:warning: Warning: I advise against running [this script](slay) unless you understand what it’s doing to your computer.
+### Review the script (please don't run scripts you don't understand):
+```bash
+less organized-ai
+```
 
-I created this based on my own preferences; your mileage may vary.
+### Run Organized-AI:
+```bash
+chmod +x organized-ai
+./organized-ai 2>&1 | tee ~/organized-ai.log
+```
+
+### Follow the prompts and you'll be fine! 👌
 
 Once the script is done, quit and relaunch Terminal.
 
 It is highly recommended to run the script regularly to keep your computer up to date.
 
-Your last Formation run will be saved to `~/slay.log`. To review it, run `less ~/slay.log`.
+Your last Organized-AI run will be saved to `~/organized-ai.log`. To review it, run `less ~/organized-ai.log`.
 
-That's it! :sparkles:
+**That's it!** ✨
 
-## What it sets up
-The setup process will install:
+## 📁 Directory Structure Created
 
-<details>
-<summary>Basic tools:</summary>
+The script creates a comprehensive AI development workspace:
 
-* [XCode Command Line Tools](https://developer.apple.com/xcode/downloads/) for developer essentials.
-* [Bash-it](https://github.com/Bash-it/bash-it/), for a more powerful bash.
-* [Git](https://git-scm.com/) for version control
-* [Homebrew](http://brew.sh/) for managing operating system libraries.
-</details>
-
-<details>
-<summary>Package Managers:</summary>
-
-* [NVM](https://github.com/creationix/nvm/) for managing and installing multiple versions of [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/)
-* [Rbenv](https://github.com/sstephenson/rbenv) for managing versions of Ruby
-* [Yarn](https://yarnpkg.com/en/) for managing JavaScript packages
-</details>
-
-<details>
-<summary>CLI Tools & Utilities:</summary>
-
-* [asciinema](https://asciinema.org/) for recording terminal sessions
-* [Gulp](https://gulpjs.com/) the streaming build system
-* [Hotel](https://github.com/typicode/hotel), a simple process manager for developers
-* [Hub](http://hub.github.com/) for interacting with the GitHub API
-* [hugo](https://gohugo.io/), an open-source static site generator
-* [ImageMagick](http://www.imagemagick.org/) to create, edit, compose, or convert bitmap images
-* [mas](https://github.com/mas-cli/mas) Mac App Store command line interface
-* [Tig](https://github.com/jonas/tig) text-mode interface for git
-* [Vagrant](https://www.vagrantup.com/) for development environments
-</details>
-
-### Apps
-
-<details>
-<summary>Productivity</summary>
-
-* [Airmail](http://airmailapp.com/) for a better mail client.
-* [Alfred](https://www.alfredapp.com/) for increased productivity and efficiency with macOS.
-* [Fantastical](https://flexibits.com/fantastical) for a better calendar.
-* [Things](https://culturedcode.com/things/) for getting things done.
-</details>
-
-<details>
-<summary>Development</summary>
-
-* [Dash](https://kapeli.com/dash) offline access to API documentation sets
-* [ForkLift](https://www.binarynights.com/forklift/) FTP client
-* [Hyper](https://hyper.is/) for an alternative terminal.
-* [ImageOptim](https://imageoptim.com/mac) for image optimization.
-* [iTerm](https://www.iterm2.com/) for a better terminal.
-* [Kaleidoscope](https://www.kaleidoscopeapp.com/) for a better diff tool.
-* [Virtual Box](https://www.virtualbox.org/) powerful virtualization tool
-* [Visual Studio Code](https://code.visualstudio.com/) IDE
-</details>
-
-<details>
-<summary>Design</summary>
-
-* [Affinity Designer](https://affinity.serif.com/en-us/designer/)
-* [Affinity Photo](https://affinity.serif.com/en-us/photo/)
-* [Sip](http://sipapp.io/) collect, organize & share your colors
-* [Sketch](https://www.sketchapp.com/) for design.
-</details>
-
-<details>
-<summary>Communication</summary>
-
-* [Bear](http://www.bear-writer.com/) for writing and previewing markdown.
-* [Skype](https://www.skype.com/en/) for free calls to friends and family.
-* [Slack](https://slack.com/) where work happens.
-* [Ulysses](https://ulyssesapp.com/) for long-form writing.
-</details>
-
-<details>
-<summary>Utilities</summary>
-
-* [1Password](https://1password.com/) for password management.
-* [Dropbox](https://www.dropbox.com) for cloud file storage.
-* [Divvy](http://mizage.com/divvy/) for better window management.
-* [Encrypto](https://macpaw.com/encrypto) for securing files.
-* [ExpressVPN](https://www.expressvpn.com/) for privacy.
-* [HyperDock](https://bahoom.com/hyperdock/)
-* [Karabiner](https://pqrs.org/osx/karabiner/) for keyboard mapping.
-* [Renamer](https://renamer.com/) for easy file renaming.
-</details>
-
-<details>
-<summary>Miscellaneous</summary>
-
-* [Gifox](https://gifox.io/) for GIF making.
-* [Rocket](http://matthewpalmer.net/rocket/) for Slack-like emojis.
-* [Spotify](https://www.spotify.com/) for music.
-* [VLC](http://www.videolan.org/) for a better media player.
-</details>
-
-<details>
-<summary>Browsers</summary>
-
-* [Blisk](https://blisk.io/) for cross-device web development.
-* [Brave](https://brave.com/) for web browsing without ads.
-* [Chrome](https://www.google.com/chrome/browser/desktop/) for fast and free web browsing.
-* [Firefox](https://www.mozilla.org/en-US/firefox/new/) for web browsing and testing.
-* [TorBrowser](https://www.torproject.org/projects/torbrowser.html.en) for super secret web browsing.
-</details>
-
-<sub>See [`swag`](swag) for the full list of apps that will be installed. Adjust it to your personal taste.</sub>
-
-It should take less than 20 minutes to install (depends on your machine).
-
-## 🌶 Just add `~/.hot-sauce`
-
-![I got hot sauce in my bag](assets/hot-sauce.gif)
-
-Your `~/.hot-sauce` is added at the end of the Formation script. Put your customizations there.
-For example:
-
-```sh
-#!/usr/bin/env bash
-
-SETUP_ROOT=$HOME/.setup
-
-NERDFONTS_RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/ryanoasis/nerd-fonts/releases/latest)
-NERDFONTS_VERSION=$(get_github_version $NERDFONTS_RELEASE)
-
-DIRECTORIES=(
-    $HOME/Desktop/code
-    $HOME/Desktop/design
-    $HOME/Desktop/*dump
-    $HOME/Desktop/GIFs
-    $HOME/Desktop/projects
-    $HOME/Desktop/screenshots
-)
-
-NERDFONTS=(
-    SpaceMono
-    Hack
-    AnonymousPro
-    Inconsolata
-)
-
-step "Making directories…"
-for dir in ${DIRECTORIES[@]}; do
-    mkd $dir
-done
-
-step "Installing fonts…"
-for font in ${NERDFONTS[@]}; do
-    if [ ! -d ~/Library/Fonts/$font ]; then
-        printf "${indent}  [↓] $font "
-        wget -P ~/Library/Fonts https://github.com/ryanoasis/nerd-fonts/releases/download/$NERDFONTS_VERSION/$font.zip --quiet;unzip -q ~/Library/Fonts/$font -d ~/Library/Fonts/$font
-        print_in_green "${bold}✓ done!${normal}\n"
-    else
-        print_muted "${indent}✓ $font already installed. Skipped."
-    fi
-done
+```
+~/supabowl-workspace/
+├── newsense-projects/           # Your AI projects
+│   ├── personal/
+│   ├── work/
+│   └── experiments/
+├── believe-configs/             # Configuration templates
+│   ├── templates/
+│   └── custom/
+├── models/                      # AI model storage
+│   ├── llama/
+│   ├── claude/
+│   └── openai/
+├── datasets/                    # Training and test data
+│   ├── training/
+│   ├── testing/
+│   └── validation/
+├── experiments/                 # ML experiments
+├── notebooks/                   # Jupyter notebooks
+│   ├── research/
+│   └── tutorials/
+├── screenshots/                 # Demo screenshots
+└── demos/                       # Project demonstrations
 ```
 
-Write your customizations such that they can be run safely more than once.
-See the `slay` script for examples.
+## 🛠 What Gets Installed
 
-Formation functions such as `step` and `link` can be used in your `~/.hot-sauce`.
+### 📦 Core Development Tools
+- **XCode Command Line Tools** for developer essentials
+- **Homebrew** for managing operating system libraries
+- **Python 3.11** via pyenv for AI development
+- **Node.js** via NVM for web development
+- **Docker** for containerization
+- **Git LFS** for large model files
 
-## Known Issues
-Cask does not recognize applications installed outside of Homebrew Cask – in the case that the script fails, you can either remove the application from the install list or uninstall the application causing the failure and try again.
+### 🧠 AI Development Stack
+- **Anthropic Claude SDK** for Claude API integration
+- **OpenAI Python SDK** for GPT models
+- **Jupyter Notebook** for interactive development
+- **PyTorch** for deep learning
+- **Transformers** by Hugging Face
+- **LangChain** for LLM applications
+- **Streamlit & Gradio** for AI app interfaces
 
-## Acknowledgements
+### 💻 Applications (via Homebrew Cask)
+- **Visual Studio Code** & **Cursor** for AI-enhanced coding
+- **Docker Desktop** for containerization
+- **Postman & Insomnia** for API testing
+- **iTerm2** for terminal enhancement
+- **Notion & Obsidian** for knowledge management
+- **Rectangle & Raycast** for productivity
 
-Inspiration and code was taken from many sources, including:
+### 📱 Mac App Store Apps
+- **Xcode** for iOS development
+- **1Password** for secure credential management
+- **Things 3** for task management
+- **Fantastical** for calendar management
 
-* [Mathias Bynens'](https://github.com/mathiasbynens) [dotfiles](https://github.com/mathiasbynens/dotfiles)
-* thoughtbot's [laptop](https://github.com/thoughtbot/laptop/)
+## ⚙️ Believe Configuration System
 
-## 📜  License
+The `believe/` directory contains configuration files that determine what gets installed:
 
-Formation is customized for my own needs. It is free software, and may be redistributed under the terms specified in the [LICENSE] file.
+- **`believe/brews`** - Homebrew formula packages
+- **`believe/casks`** - Homebrew Cask applications  
+- **`believe/apps`** - Mac App Store applications
+- **`believe/npm`** - Node.js packages
 
-[LICENSE]: LICENSE
+You can customize these files to add or remove packages according to your needs.
+
+## 🎨 Jordaaan Personalizations
+
+### Setting Up Your Personal Configuration
+
+Copy the sample configuration:
+```bash
+cp sample-jordaaan-config ~/.jordaaan
+chmod +x ~/.jordaaan
+```
+
+Your `~/.jordaaan` file can include:
+- Additional AI Python packages
+- Custom directory structures
+- Font installations
+- Git configurations
+- Environment variables
+- Personal aliases and shortcuts
+
+### Example Jordaaan Configuration
+
+The sample includes configurations for:
+- **Advanced AI packages**: LangChain, Streamlit, Gradio, Weights & Biases
+- **Nerd Fonts**: Better terminal and coding fonts
+- **Git setup**: AI development-specific Git configurations
+- **Environment variables**: Python paths and AI workspace variables
+- **Newsense project templates**: Ready-to-use AI project structures
+
+## 🏗 Newsense AI Project Structure
+
+When you create new AI projects, use this recommended structure:
+
+```
+my-ai-project/
+├── believe/                     # Configuration files
+│   ├── model_config.yaml
+│   ├── prompt_templates.yaml
+│   └── logging_config.yaml
+├── src/
+│   ├── llm/                     # LLM client implementations
+│   ├── prompt_engineering/      # Prompt templates and chains
+│   └── utils/                   # Utilities (rate limiting, caching)
+├── data/                        # Data storage
+├── examples/                    # Usage examples
+├── notebooks/                   # Jupyter notebooks
+└── handlers/                    # Error handling
+```
+
+## 🔧 Customization
+
+### Believe Configurations
+
+Organized-AI functions such as `step` and `install_brews` can be used in your `~/.jordaaan`.
+
+### Troubleshooting
+
+**Cask does not recognize applications installed outside of Homebrew Cask** – in the case that the script fails, you can either:
+1. Remove the application from the install list, or  
+2. Uninstall the application causing the failure and try again.
+
+### Understanding the Scripts
+
+- **`organized-ai`** - Main setup script (replaces Formation's `slay`)
+- **`twirl`** - Helper functions library (unchanged from Formation)
+- **`believe/`** - Configuration directory (replaces Formation's `swag/`)
+- **`~/.jordaaan`** - Personal customizations (replaces Formation's `~/.hot-sauce`)
+
+## 🤝 Inspiration and Credits
+
+This project is built upon the excellent work of:
+- **[Mina Markham's Formation](https://github.com/minamarkham/formation)** - The original macOS setup script
+- **[Brij Kishore Pandey's AI Project Structure](https://github.com/brijkishore)** - Generative AI project organization
+- Various other macOS setup scripts and AI development best practices
+
+## 📋 Naming Convention Reference
+
+| Original Formation | Organized-AI | Purpose |
+|-------------------|-------------|---------|
+| `slay` | `organized-ai` | Main setup script |
+| `~/.hot-sauce` | `~/.jordaaan` | Personal customizations |
+| `swag/` | `believe/` | Configuration directory |
+| Project naming | `newsense` | AI project structure |
+| Environment | `supabowl` | Development workspace |
+
+## 🚀 Getting Started with AI Development
+
+After running Organized-AI:
+
+1. **Restart your terminal** to load new environment variables
+2. **Activate your Python environment**:
+   ```bash
+   cd ~/supabowl-workspace
+   pyenv local 3.11.0
+   ```
+3. **Create your first Newsense AI project**:
+   ```bash
+   cp -r believe-configs/templates/newsense-template my-first-ai-project
+   cd my-first-ai-project
+   ```
+4. **Set up your API keys**:
+   ```bash
+   export ANTHROPIC_API_KEY="your-key-here"
+   export OPENAI_API_KEY="your-key-here"
+   ```
+5. **Start building!** 🎉
+
+## 📚 Additional Resources
+
+- **[Anthropic Claude Documentation](https://docs.anthropic.com/)**
+- **[OpenAI API Documentation](https://platform.openai.com/docs/)**
+- **[Jupyter Notebook Documentation](https://jupyter.org/documentation)**
+- **[Docker Documentation](https://docs.docker.com/)**
+- **[Python AI Development Guide](https://docs.python-guide.org/)**
+
+## 📄 License
+
+MIT License - See [LICENSE](LICENSE) file for details.
+
+---
+
+**Happy AI Building!** 🤖✨
+
+*Built with ❤️ for the AI development community*
