@@ -140,6 +140,77 @@ git config --global alias.data-add "add *.csv *.json *.jsonl"
 print_success "Git configured for AI development!"
 
 ###############################################################################
+# Set Up Claude Code Context Files (CLAUDE.md)
+###############################################################################
+step "Setting up Claude Code context files…"
+
+# Get the formation directory path (where this script is running from)
+FORMATION_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Copy global CLAUDE.md to supabowl workspace root
+GLOBAL_CLAUDE_SOURCE="$FORMATION_DIR/templates/CLAUDE-global.md"
+GLOBAL_CLAUDE_DEST="$SUPABOWL_WORKSPACE/CLAUDE.md"
+
+if [ -f "$GLOBAL_CLAUDE_SOURCE" ]; then
+  cp "$GLOBAL_CLAUDE_SOURCE" "$GLOBAL_CLAUDE_DEST"
+  print_success "Global CLAUDE.md copied to supabowl workspace"
+else
+  print_warning "Global CLAUDE.md template not found, creating basic version..."
+  cat > "$GLOBAL_CLAUDE_DEST" << 'EOF'
+# Claude Code Context for Supabowl AI Development
+
+This is a **Supabowl AI development environment** with organized naming conventions:
+- **organized-ai**: Main setup script
+- **believe/**: Configuration system  
+- **jordaaan**: Personal customizations
+- **newsense**: AI project structure
+- **supabowl**: Development workspace
+
+## Project Structure
+~/supabowl-workspace/
+├── newsense-projects/     # AI development projects
+├── believe-configs/       # Configuration templates
+├── models/               # AI model storage
+├── datasets/             # Data management  
+├── experiments/          # ML experiments
+└── notebooks/            # Jupyter notebooks
+
+Use the newsense project template for all new AI projects.
+EOF
+  print_success "Basic global CLAUDE.md created"
+fi
+
+# Copy project-specific CLAUDE.md to newsense template
+PROJECT_CLAUDE_SOURCE="$FORMATION_DIR/newsense-template/CLAUDE.md"
+PROJECT_CLAUDE_DEST="$SUPABOWL_WORKSPACE/believe-configs/templates/newsense-template/CLAUDE.md"
+
+if [ -f "$PROJECT_CLAUDE_SOURCE" ]; then
+  mkdir -p "$(dirname "$PROJECT_CLAUDE_DEST")"
+  cp "$PROJECT_CLAUDE_SOURCE" "$PROJECT_CLAUDE_DEST"
+  print_success "Project CLAUDE.md copied to newsense template"
+else
+  print_warning "Project CLAUDE.md not found, creating basic version..."
+  mkdir -p "$(dirname "$PROJECT_CLAUDE_DEST")"
+  cat > "$PROJECT_CLAUDE_DEST" << 'EOF'
+# Claude Code Context for Newsense AI Project
+
+This project uses the **Newsense AI structure** with **Believe configurations**.
+
+## Structure
+- believe/ - Configuration files
+- src/ - Source code with modular organization
+- data/ - Data management and storage
+- examples/ - Usage demonstrations
+- notebooks/ - Experimental work
+
+Follow the established patterns for AI development.
+EOF
+  print_success "Basic project CLAUDE.md created"
+fi
+
+print_success "Claude Code context files configured!"
+
+###############################################################################
 # Set Up Environment Variables
 ###############################################################################
 step "Setting up AI development environment variables…"
@@ -215,11 +286,70 @@ cache:
   enabled: true
   ttl: 3600  # 1 hour
 EOF
+
+  # Copy the newsense template from formation repo if it exists
+  FORMATION_NEWSENSE="$FORMATION_DIR/newsense-template"
+  if [ -d "$FORMATION_NEWSENSE" ]; then
+    cp -r "$FORMATION_NEWSENSE"/* "$TEMPLATE_DIR/"
+    print_success "Enhanced newsense template copied from formation repo"
+  fi
   
   print_success "Newsense AI project template created!"
 else
   print_success_muted "Newsense AI template already exists"
 fi
+
+###############################################################################
+# Create Claude Code Helper Script
+###############################################################################
+step "Creating Claude Code helper script…"
+
+HELPER_SCRIPT="$SUPABOWL_WORKSPACE/claude-setup.sh"
+cat > "$HELPER_SCRIPT" << 'EOF'
+#!/usr/bin/env bash
+# Helper script for setting up Claude Code context in new projects
+
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <project-name>"
+    echo "Creates a new AI project with Claude Code context"
+    exit 1
+fi
+
+PROJECT_NAME="$1"
+PROJECTS_DIR="$HOME/supabowl-workspace/newsense-projects"
+TEMPLATE_DIR="$HOME/supabowl-workspace/believe-configs/templates/newsense-template"
+
+if [ ! -d "$TEMPLATE_DIR" ]; then
+    echo "❌ Newsense template not found. Run organized-ai setup first."
+    exit 1
+fi
+
+echo "🤖 Creating new Newsense AI project: $PROJECT_NAME"
+
+# Create project directory
+PROJECT_DIR="$PROJECTS_DIR/$PROJECT_NAME"
+mkdir -p "$PROJECT_DIR"
+
+# Copy template
+cp -r "$TEMPLATE_DIR"/* "$PROJECT_DIR/"
+
+# Initialize git
+cd "$PROJECT_DIR"
+git init
+git add .
+git commit -m "Initial project setup from newsense template"
+
+echo "✅ Project created: $PROJECT_DIR"
+echo "Next steps:"
+echo "1. cd $PROJECT_DIR"
+echo "2. cp .env.example .env"
+echo "3. Edit .env with your API keys"
+echo "4. pip install -r requirements.txt"
+echo "5. python examples/basic_completion.py"
+EOF
+
+chmod +x "$HELPER_SCRIPT"
+print_success "Claude Code helper script created at $HELPER_SCRIPT"
 
 ###############################################################################
 # Final Jordaaan Setup Message
@@ -232,11 +362,19 @@ printf "│  ✅ AI development directories created                   │\n"
 printf "│  ✅ Advanced AI packages installed                       │\n"
 printf "│  ✅ Nerd Fonts installed for better coding              │\n"
 printf "│  ✅ Git configured for AI projects                       │\n"
+printf "│  ✅ Claude Code context files configured                 │\n"
 printf "│  ✅ Environment variables set                            │\n"
 printf "│  ✅ Newsense project template ready                      │\n"
+printf "│  ✅ Claude Code helper script created                    │\n"
 printf "│                                                         │\n"
 printf "│  🚀 Your supabowl AI environment is fully configured!   │\n"
 printf "│                                                         │\n"
-printf "│  Next: Restart your terminal and start building!       │\n"
+printf "│  Claude Code Integration:                               │\n"
+printf "│  📁 Global context: ~/supabowl-workspace/CLAUDE.md      │\n"
+printf "│  📁 Project template includes CLAUDE.md                 │\n"
+printf "│  🛠️  Helper script: ~/supabowl-workspace/claude-setup.sh │\n"
+printf "│                                                         │\n"
+printf "│  Next: Restart terminal and create your first project! │\n"
+printf "│  ~/supabowl-workspace/claude-setup.sh my-ai-project     │\n"
 printf "╰─────────────────────────────────────────────────────────╯\n"
 printf "\n"
