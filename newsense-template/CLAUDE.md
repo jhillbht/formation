@@ -37,7 +37,12 @@ project-root/
 ├── data/                        # Data storage and management
 ├── examples/                    # Usage examples and demos
 ├── notebooks/                   # Jupyter notebooks for experiments
-└── CLAUDE.md                   # This context file
+├── scripts/                     # Development helper scripts
+│   ├── worktree-create.sh      # Create git worktrees for parallel development
+│   ├── worktree-code.sh        # Launch Claude Code in specific worktrees
+│   └── worktree-cleanup.sh     # Clean up completed worktrees
+├── CLAUDE.md                   # This context file
+└── WORKTREES.md                # Git worktrees documentation
 ```
 
 ## 🛠 Technology Stack
@@ -49,6 +54,35 @@ project-root/
 - **YAML** for configuration management
 - **pytest** for testing
 - **black + isort** for code formatting
+
+## 🌳 Git Worktrees for Parallel Development
+
+This project includes **git worktree support** for running parallel Claude Code sessions:
+
+### Quick Worktree Commands
+```bash
+# Create experimental worktrees
+./scripts/worktree-create.sh experiment/langchain-integration
+./scripts/worktree-create.sh feature/advanced-prompting
+./scripts/worktree-create.sh comparison/claude-vs-gpt4
+
+# Launch Claude Code in specific worktrees
+./scripts/worktree-code.sh experiment/langchain-integration
+./scripts/worktree-code.sh feature/advanced-prompting
+
+# Clean up completed worktrees
+./scripts/worktree-cleanup.sh experiment/langchain-integration
+```
+
+### Worktree Benefits for AI Development
+- **Parallel experiments**: Test different AI models simultaneously
+- **Feature isolation**: Work on multiple features without conflicts
+- **A/B testing**: Compare different prompt engineering approaches
+- **Model comparison**: Run different LLM configurations side-by-side
+- **Safe experimentation**: Isolate risky changes in separate trees
+
+### Worktree Context Awareness
+Each worktree gets its own **CLAUDE.md** file with context specific to that experiment or feature. This allows Claude Code to understand the purpose and focus of each parallel development session.
 
 ## 🎯 Development Guidelines
 
@@ -157,6 +191,18 @@ pip install -r requirements.txt
 python examples/basic_completion.py
 ```
 
+### Parallel Development Workflow
+```bash
+# Create worktree for new experiment
+./scripts/worktree-create.sh experiment/my-experiment
+
+# Start Claude Code in the worktree
+./scripts/worktree-code.sh experiment/my-experiment
+
+# When experiment is complete
+./scripts/worktree-cleanup.sh experiment/my-experiment
+```
+
 ## 📝 Documentation Standards
 - All modules should have comprehensive docstrings
 - Use **Google-style docstrings** for consistency
@@ -188,9 +234,10 @@ python examples/basic_completion.py
 ## 📚 Resources
 - **Anthropic Claude Documentation**: https://docs.anthropic.com/
 - **OpenAI API Documentation**: https://platform.openai.com/docs/
+- **Git Worktrees Tutorial**: https://docs.anthropic.com/en/docs/claude-code/tutorials#run-parallel-claude-code-sessions-with-git-worktrees
 - **Project Planning Document**: [Link to your planning docs]
 - **Supabowl Workspace**: `~/supabowl-workspace/`
 
 ---
 
-*This context helps Claude Code understand the organized AI development environment and follow the established patterns and conventions.*
+*This context helps Claude Code understand the organized AI development environment, support for parallel development with git worktrees, and the established patterns and conventions.*
