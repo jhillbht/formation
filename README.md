@@ -1,221 +1,522 @@
-# 🐝 Formation <a href="https://www.patreon.com/minamarkham"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="100"></a>
+# Formation: Organized AI Development Framework
 
-![Let's get in formation](assets/formation.gif)
-> Formation is a shell script to set up a macOS laptop for design and development.
+**🍋 Get in Formation for AI Development 🤖**
 
-It can be run multiple times on the same machine safely. It installs, upgrades, or skips packages based on what is already installed on the machine.
+Formation is an organized AI development framework that sets up a comprehensive **Supabowl workspace environment** optimized for building AI applications with Claude, OpenAI, and other LLM providers. It provides structured naming conventions, automated workflows, and seamless Claude Code integration.
 
-## Install
+## 🎯 Core Philosophy
 
-Download the script:
+Formation replaces traditional development setup with **organized naming conventions** specifically designed for AI development:
 
-```sh
-git clone git@github.com/minamarkham/formation.git && cd formation
+- **organized-ai**: Main setup script (replaces "slay")
+- **believe/**: Configuration system (replaces "swag/")  
+- **newsense**: AI project structure template
+- **jordaaan**: Personal customizations (replaces "~/.hot-sauce")
+- **supabowl**: Development workspace environment
+
+## 🏗 Supabowl Workspace Structure
+
+Formation creates an organized workspace at `~/supabowl-workspace/` with everything you need for AI development:
+
+```
+~/supabowl-workspace/
+├── newsense-projects/           # AI development projects
+│   ├── personal/               # Personal AI experiments  
+│   ├── work/                   # Professional AI projects
+│   └── experiments/            # Research and testing
+├── believe-configs/             # Configuration templates and customs
+│   ├── templates/              # Reusable project templates
+│   │   └── newsense-template/  # Standard AI project structure
+│   └── custom/                 # Personal configuration overrides
+├── models/                      # AI model storage and management
+│   ├── llama/                  # Local LLaMA models
+│   ├── claude/                 # Claude-specific resources  
+│   └── openai/                 # OpenAI-specific resources
+├── datasets/                    # Data management
+│   ├── training/               # Training datasets
+│   ├── testing/                # Test datasets
+│   └── validation/             # Validation datasets
+├── experiments/                 # ML/AI experiment tracking
+├── notebooks/                   # Jupyter notebook collection
+│   ├── research/               # Research notebooks
+│   └── tutorials/              # Learning notebooks
+├── screenshots/                 # Demo and documentation images
+├── demos/                       # Project demonstrations
+├── CLAUDE.md                    # Global Claude Code context
+└── claude-setup.sh              # Helper script for new projects
 ```
 
-Review the script (please don't run scripts you don't understand):
+## 🚀 Quick Start
 
-```sh
-less slay
-```
+### 1. Install Formation Framework
 
-Slay:
-
-```sh
+```bash
+# Clone the organized-codebase branch
+git clone -b organized-codebase https://github.com/jhillbht/formation.git
 cd formation
-./slay 2>&1 | tee ~/slay.log
-```
-Just follow the prompts and you’ll be fine. 👌
 
-:warning: Warning: I advise against running [this script](slay) unless you understand what it’s doing to your computer.
-
-I created this based on my own preferences; your mileage may vary.
-
-Once the script is done, quit and relaunch Terminal.
-
-It is highly recommended to run the script regularly to keep your computer up to date.
-
-Your last Formation run will be saved to `~/slay.log`. To review it, run `less ~/slay.log`.
-
-That's it! :sparkles:
-
-## What it sets up
-The setup process will install:
-
-<details>
-<summary>Basic tools:</summary>
-
-* [XCode Command Line Tools](https://developer.apple.com/xcode/downloads/) for developer essentials.
-* [Bash-it](https://github.com/Bash-it/bash-it/), for a more powerful bash.
-* [Git](https://git-scm.com/) for version control
-* [Homebrew](http://brew.sh/) for managing operating system libraries.
-</details>
-
-<details>
-<summary>Package Managers:</summary>
-
-* [NVM](https://github.com/creationix/nvm/) for managing and installing multiple versions of [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/)
-* [Rbenv](https://github.com/sstephenson/rbenv) for managing versions of Ruby
-* [Yarn](https://yarnpkg.com/en/) for managing JavaScript packages
-</details>
-
-<details>
-<summary>CLI Tools & Utilities:</summary>
-
-* [asciinema](https://asciinema.org/) for recording terminal sessions
-* [Gulp](https://gulpjs.com/) the streaming build system
-* [Hotel](https://github.com/typicode/hotel), a simple process manager for developers
-* [Hub](http://hub.github.com/) for interacting with the GitHub API
-* [hugo](https://gohugo.io/), an open-source static site generator
-* [ImageMagick](http://www.imagemagick.org/) to create, edit, compose, or convert bitmap images
-* [mas](https://github.com/mas-cli/mas) Mac App Store command line interface
-* [Tig](https://github.com/jonas/tig) text-mode interface for git
-* [Vagrant](https://www.vagrantup.com/) for development environments
-</details>
-
-### Apps
-
-<details>
-<summary>Productivity</summary>
-
-* [Airmail](http://airmailapp.com/) for a better mail client.
-* [Alfred](https://www.alfredapp.com/) for increased productivity and efficiency with macOS.
-* [Fantastical](https://flexibits.com/fantastical) for a better calendar.
-* [Things](https://culturedcode.com/things/) for getting things done.
-</details>
-
-<details>
-<summary>Development</summary>
-
-* [Dash](https://kapeli.com/dash) offline access to API documentation sets
-* [ForkLift](https://www.binarynights.com/forklift/) FTP client
-* [Hyper](https://hyper.is/) for an alternative terminal.
-* [ImageOptim](https://imageoptim.com/mac) for image optimization.
-* [iTerm](https://www.iterm2.com/) for a better terminal.
-* [Kaleidoscope](https://www.kaleidoscopeapp.com/) for a better diff tool.
-* [Virtual Box](https://www.virtualbox.org/) powerful virtualization tool
-* [Visual Studio Code](https://code.visualstudio.com/) IDE
-</details>
-
-<details>
-<summary>Design</summary>
-
-* [Affinity Designer](https://affinity.serif.com/en-us/designer/)
-* [Affinity Photo](https://affinity.serif.com/en-us/photo/)
-* [Sip](http://sipapp.io/) collect, organize & share your colors
-* [Sketch](https://www.sketchapp.com/) for design.
-</details>
-
-<details>
-<summary>Communication</summary>
-
-* [Bear](http://www.bear-writer.com/) for writing and previewing markdown.
-* [Skype](https://www.skype.com/en/) for free calls to friends and family.
-* [Slack](https://slack.com/) where work happens.
-* [Ulysses](https://ulyssesapp.com/) for long-form writing.
-</details>
-
-<details>
-<summary>Utilities</summary>
-
-* [1Password](https://1password.com/) for password management.
-* [Dropbox](https://www.dropbox.com) for cloud file storage.
-* [Divvy](http://mizage.com/divvy/) for better window management.
-* [Encrypto](https://macpaw.com/encrypto) for securing files.
-* [ExpressVPN](https://www.expressvpn.com/) for privacy.
-* [HyperDock](https://bahoom.com/hyperdock/)
-* [Karabiner](https://pqrs.org/osx/karabiner/) for keyboard mapping.
-* [Renamer](https://renamer.com/) for easy file renaming.
-</details>
-
-<details>
-<summary>Miscellaneous</summary>
-
-* [Gifox](https://gifox.io/) for GIF making.
-* [Rocket](http://matthewpalmer.net/rocket/) for Slack-like emojis.
-* [Spotify](https://www.spotify.com/) for music.
-* [VLC](http://www.videolan.org/) for a better media player.
-</details>
-
-<details>
-<summary>Browsers</summary>
-
-* [Blisk](https://blisk.io/) for cross-device web development.
-* [Brave](https://brave.com/) for web browsing without ads.
-* [Chrome](https://www.google.com/chrome/browser/desktop/) for fast and free web browsing.
-* [Firefox](https://www.mozilla.org/en-US/firefox/new/) for web browsing and testing.
-* [TorBrowser](https://www.torproject.org/projects/torbrowser.html.en) for super secret web browsing.
-</details>
-
-<sub>See [`swag`](swag) for the full list of apps that will be installed. Adjust it to your personal taste.</sub>
-
-It should take less than 20 minutes to install (depends on your machine).
-
-## 🌶 Just add `~/.hot-sauce`
-
-![I got hot sauce in my bag](assets/hot-sauce.gif)
-
-Your `~/.hot-sauce` is added at the end of the Formation script. Put your customizations there.
-For example:
-
-```sh
-#!/usr/bin/env bash
-
-SETUP_ROOT=$HOME/.setup
-
-NERDFONTS_RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/ryanoasis/nerd-fonts/releases/latest)
-NERDFONTS_VERSION=$(get_github_version $NERDFONTS_RELEASE)
-
-DIRECTORIES=(
-    $HOME/Desktop/code
-    $HOME/Desktop/design
-    $HOME/Desktop/*dump
-    $HOME/Desktop/GIFs
-    $HOME/Desktop/projects
-    $HOME/Desktop/screenshots
-)
-
-NERDFONTS=(
-    SpaceMono
-    Hack
-    AnonymousPro
-    Inconsolata
-)
-
-step "Making directories…"
-for dir in ${DIRECTORIES[@]}; do
-    mkd $dir
-done
-
-step "Installing fonts…"
-for font in ${NERDFONTS[@]}; do
-    if [ ! -d ~/Library/Fonts/$font ]; then
-        printf "${indent}  [↓] $font "
-        wget -P ~/Library/Fonts https://github.com/ryanoasis/nerd-fonts/releases/download/$NERDFONTS_VERSION/$font.zip --quiet;unzip -q ~/Library/Fonts/$font -d ~/Library/Fonts/$font
-        print_in_green "${bold}✓ done!${normal}\n"
-    else
-        print_muted "${indent}✓ $font already installed. Skipped."
-    fi
-done
+# Run the organized-ai setup script
+./organized-ai
 ```
 
-Write your customizations such that they can be run safely more than once.
-See the `slay` script for examples.
+### 2. Apply Personal Customizations (Optional)
 
-Formation functions such as `step` and `link` can be used in your `~/.hot-sauce`.
+```bash
+# Copy the sample jordaaan configuration
+cp sample-jordaaan-config ~/.jordaaan
+chmod +x ~/.jordaaan
 
-## Known Issues
-Cask does not recognize applications installed outside of Homebrew Cask – in the case that the script fails, you can either remove the application from the install list or uninstall the application causing the failure and try again.
+# Run personal customizations
+~/.jordaaan
+```
 
-## Acknowledgements
+### 3. Set Up PRD Creation (MCP Integration)
 
-Inspiration and code was taken from many sources, including:
+```bash
+# Install PRD-MCP-Server for native PRD creation
+npx -y prd-creator-mcp
 
-* [Mathias Bynens'](https://github.com/mathiasbynens) [dotfiles](https://github.com/mathiasbynens/dotfiles)
-* thoughtbot's [laptop](https://github.com/thoughtbot/laptop/)
+# Add to your Claude Desktop config (if not already configured)
+# The server will integrate with your existing MCP setup
+```
 
-## 📜  License
+### 4. Create Your First AI Project
 
-Formation is customized for my own needs. It is free software, and may be redistributed under the terms specified in the [LICENSE] file.
+```bash
+# Use the helper script to create a new project
+~/supabowl-workspace/claude-setup.sh my-ai-project
 
-[LICENSE]: LICENSE
+# Navigate to your project
+cd ~/supabowl-workspace/newsense-projects/my-ai-project
+
+# Set up environment and dependencies
+cp .env.example .env
+# Edit .env with your API keys (ANTHROPIC_API_KEY, OPENAI_API_KEY)
+pip install -r requirements.txt
+
+# Test your setup
+python examples/basic_completion.py
+```
+
+## 🎨 Newsense Project Template
+
+Every AI project follows the **newsense structure** for consistency and best practices:
+
+```
+my-ai-project/
+├── believe/                     # Configuration files
+│   ├── model_config.yaml      # AI model settings and API configs
+│   ├── logging_config.yaml    # Logging configuration
+│   └── prompt_templates.yaml  # Reusable prompt patterns
+├── src/                         # Source code with modular organization
+│   ├── llm/                    # LLM client implementations
+│   ├── prompt_engineering/     # Prompt management and optimization
+│   └── utils/                  # Shared utilities and helpers
+├── data/                        # Data management and storage
+│   ├── cache/                  # API response caching
+│   ├── prompts/                # Prompt templates and examples
+│   ├── outputs/                # Generated content and results
+│   └── embeddings/             # Vector embeddings and indexes
+├── handlers/                    # Error management and recovery
+├── examples/                    # Usage demonstrations and tutorials
+├── notebooks/                   # Experimental and research work
+├── requirements.txt             # Python dependencies
+├── .env.example                # Environment variables template
+├── .gitignore                  # Git ignore patterns for AI projects
+├── README.md                   # Project-specific documentation
+├── PRD.md                      # Product Requirements Document
+└── CLAUDE.md                   # Claude Code context for this project
+```
+
+## 📋 Native PRD Creation with MCP Integration
+
+Formation includes seamless **PRD creation** using the open-source PRD-MCP-Server that integrates directly with Claude Desktop:
+
+### PRD-MCP-Server Features
+- **Native Claude Integration**: Generate PRDs directly in Claude Desktop
+- **Multiple AI Providers**: OpenAI, Anthropic Claude, Google Gemini, local models
+- **Template Management**: Customizable templates for different project types
+- **Requirements Extraction**: Extract requirements from stakeholder feedback
+- **Validation Tools**: Ensure PRD completeness and quality
+- **Formation Compatible**: Works seamlessly with supabowl workspace structure
+
+### PRD Generation Workflow
+```bash
+# PRDs are generated using Claude Desktop with MCP tools:
+# 1. Open Claude Desktop (with PRD-MCP-Server configured)
+# 2. Use generate_prd tool with Formation context
+# 3. Save directly to newsense project structure
+# 4. Version control with git as part of normal workflow
+
+# Example: Generate Formation Framework PRD
+# Use Claude Desktop with prompts like:
+# "Generate a PRD for the Formation AI development framework using 
+#  our organized naming conventions and supabowl workspace structure"
+```
+
+### Claude Desktop Configuration
+```json
+{
+  "mcpServers": {
+    "prd-creator": {
+      "command": "npx",
+      "args": ["-y", "prd-creator-mcp"]
+    }
+  }
+}
+```
+
+## 🧠 Claude Code Integration
+
+Formation includes seamless **Claude Code integration** with automated context management:
+
+### Global Context
+- **Global CLAUDE.md**: Located at `~/supabowl-workspace/CLAUDE.md`
+- Contains workspace-wide context, naming conventions, and development guidelines
+- Shared across all projects in your supabowl workspace
+
+### Project-Specific Context  
+- **Project CLAUDE.md**: Each newsense project gets its own context file
+- Contains project-specific goals, configurations, and implementation details
+- Automatically created when using `claude-setup.sh`
+
+### Worktree-Specific Context
+- **Experiment CLAUDE.md**: Each git worktree gets dedicated context
+- Enables parallel development with isolated Claude environments
+- Perfect for A/B testing and model comparisons
+
+## 🌳 Git Worktrees for Parallel Claude Code Sessions
+
+Following **[Anthropic's recommended workflow](https://docs.anthropic.com/en/docs/claude-code/tutorials#run-parallel-claude-code-sessions-with-git-worktrees)**, every Newsense AI project includes **automated git worktree support**:
+
+```bash
+# Create parallel development environments
+./scripts/worktree-create.sh experiment/langchain-integration
+./scripts/worktree-create.sh feature/advanced-prompting
+./scripts/worktree-create.sh comparison/claude-vs-gpt4
+
+# Launch Claude Code in specific worktrees  
+./scripts/worktree-code.sh experiment/langchain-integration
+
+# Clean up completed work
+./scripts/worktree-cleanup.sh experiment/langchain-integration
+```
+
+**Benefits for AI Development:**
+- **Parallel experiments**: Test different AI models simultaneously
+- **Feature isolation**: Work on multiple features without conflicts
+- **A/B testing**: Compare prompt engineering approaches
+- **Safe experimentation**: Isolated environments with dedicated Claude contexts
+- **PRD Development**: Create PRDs for different approaches in parallel worktrees
+
+### Standard Worktree Patterns
+
+- **Model Comparison**: `comparison/claude-vs-gpt4`, `comparison/llama-vs-mistral`
+- **Feature Development**: `feature/vector-search`, `feature/conversation-memory`
+- **Experimental Libraries**: `experiment/langchain-integration`, `experiment/llamaindex`
+- **Prompt Engineering**: `experiment/chain-of-thought`, `experiment/few-shot-learning`
+- **PRD Variations**: `prd/enterprise-version`, `prd/community-edition`
+
+## ⚙️ Believe Configuration System
+
+The **believe configuration system** provides centralized, YAML-based configuration management:
+
+### Model Configuration (`believe/model_config.yaml`)
+```yaml
+models:
+  claude:
+    api_key: ${ANTHROPIC_API_KEY}
+    model: "claude-3-sonnet-20240229"
+    max_tokens: 4096
+    temperature: 0.7
+  
+  openai:
+    api_key: ${OPENAI_API_KEY}
+    model: "gpt-4"
+    max_tokens: 4096
+    temperature: 0.7
+
+rate_limits:
+  requests_per_minute: 60
+  tokens_per_minute: 100000
+
+cache:
+  enabled: true
+  ttl: 3600  # 1 hour
+```
+
+### PRD Configuration (`believe/prd_config.yaml`)
+```yaml
+prd:
+  provider: "anthropic"  # or openai, gemini, local
+  template: "formation"  # Use Formation-specific template
+  validation_rules:
+    - "has-introduction"
+    - "minimum-length"
+    - "technical-requirements"
+  
+formation:
+  naming_conventions:
+    use_organized_terms: true
+    workspace: "supabowl"
+    projects: "newsense"
+    configs: "believe"
+```
+
+### Configuration Templates
+- **Global configs**: `~/supabowl-workspace/believe-configs/templates/`
+- **Project configs**: `project-root/believe/`
+- **Personal overrides**: Via jordaaan customizations
+- **Environment variables**: Secure `.env` file management
+
+## 🎯 Jordaaan Personal Customizations
+
+The **jordaaan customization system** allows for personal development preferences:
+
+### Additional AI Packages
+- **Python**: langchain, streamlit, gradio, huggingface-hub, datasets, transformers
+- **Node.js**: @anthropic-ai/sdk, openai, @langchain packages
+- **Development**: wandb, mlflow, tensorboard for experiment tracking
+
+### Enhanced Development Experience
+- **Nerd Fonts**: FiraCode, JetBrainsMono, Hack for better terminal experience
+- **Git Integration**: Specialized aliases for AI development workflows
+- **Environment Setup**: Automated PATH and PYTHONPATH configuration
+
+### Custom Git Aliases
+```bash
+git ai-commit     # Specialized commits for AI work
+git model-add     # Add model files with proper LFS
+git data-add      # Add datasets and training data
+git prd-update    # Update PRD with git tracking
+```
+
+## 🛠 Technology Stack
+
+### Core Development Tools
+- **Python 3.11** managed via pyenv
+- **Node.js** managed via nvm
+- **Docker** for containerization
+- **Git with LFS** for large model files
+- **Homebrew** for package management
+
+### AI Development Stack
+- **Anthropic Claude SDK** for Claude API integration
+- **OpenAI Python SDK** for GPT models
+- **Jupyter Notebook** for interactive development
+- **Streamlit** for rapid AI app prototyping
+- **FastAPI** for production AI services
+- **PyTorch** for deep learning (when needed)
+- **Transformers** by Hugging Face for model work
+
+### Development Environment
+- **Visual Studio Code** with AI extensions
+- **Cursor** for AI-assisted coding
+- **iTerm2** with enhanced terminal features
+- **Docker Desktop** for containerization
+- **Claude Desktop** with MCP server integration
+
+### PRD Creation Tools
+- **PRD-MCP-Server** for native PRD generation
+- **Multiple AI Providers** for flexible PRD creation
+- **Template Management** for consistent documentation
+- **Validation Tools** for quality assurance
+
+## 🎨 Development Guidelines
+
+### Coding Standards
+- **Python**: Black formatting, isort imports, type hints, comprehensive docstrings
+- **JavaScript/TypeScript**: Prettier formatting, ESLint rules
+- **YAML**: Consistent indentation, meaningful comments
+- **Markdown**: Clear structure, proper linking
+- **PRDs**: Use Formation naming conventions and newsense structure
+
+### File Naming Conventions
+- **Python files**: `snake_case.py`
+- **JavaScript files**: `camelCase.js` or `kebab-case.js`
+- **Configuration files**: `descriptive_name.yaml`
+- **Directories**: `kebab-case` or `snake_case`
+- **Environment files**: `.env.environment_name`
+- **PRD files**: `PRD.md` (standard location in project root)
+
+### Git Workflow
+- **Branch naming**: `feature/descriptive-name`, `fix/issue-description`, `experiment/research-topic`
+- **Commit messages**: Conventional commits format
+- **Large files**: Use Git LFS for models, datasets, and binaries
+- **PRD Updates**: Track PRD changes with descriptive commit messages
+
+## 🔐 Security and Best Practices
+
+### API Key Management
+- **Never commit API keys** to version control
+- **Use .env files** for development environments
+- **Environment variables** for production deployments
+- **Regular rotation** of API keys and secrets
+
+### Data Privacy
+- **Handle sensitive data** according to privacy requirements
+- **Secure caching** of API responses
+- **No sensitive logging** - avoid logging personal or confidential information
+- **Compliance** with relevant data protection regulations
+
+### PRD Security
+- **Sensitive requirements**: Handle proprietary product information securely
+- **Access control**: Limit PRD access based on team roles
+- **Version control**: Track PRD changes without exposing sensitive data
+- **Export controls**: Secure handling of PRD exports and sharing
+
+## 📚 Usage Examples
+
+### Basic Claude API Usage
+```python
+from src.llm.claude_client import ClaudeClient
+from src.utils.config import load_config
+
+# Load configuration
+config = load_config()
+client = ClaudeClient(config["models"]["claude"])
+
+# Generate completion
+response = client.complete(
+    prompt="Explain quantum computing in simple terms",
+    max_tokens=1000
+)
+print(response.content)
+```
+
+### Prompt Template Usage
+```python
+from src.prompt_engineering.template_manager import TemplateManager
+
+# Load and use prompt templates
+templates = TemplateManager()
+prompt = templates.render("explain_concept", {
+    "topic": "machine learning",
+    "audience": "beginners",
+    "length": "brief"
+})
+
+response = client.complete(prompt)
+```
+
+### Configuration Management
+```python
+from src.utils.config import load_config
+
+# Load environment-specific configuration
+config = load_config(environment="development")
+
+# Access model settings
+claude_config = config["models"]["claude"]
+rate_limits = config["rate_limits"]
+```
+
+### PRD Generation with MCP
+```python
+# PRD generation happens through Claude Desktop MCP integration
+# Example workflow in Claude Desktop:
+
+# 1. Use generate_prd tool:
+# generate_prd(
+#   productName="Formation Framework",
+#   productDescription="AI development framework with organized conventions",
+#   targetAudience="AI developers and technical teams",
+#   coreFeatures=["supabowl workspace", "newsense templates", "believe configs"],
+#   templateName="formation",
+#   providerId="anthropic"
+# )
+
+# 2. Save output to project PRD.md
+# 3. Validate with validate_prd tool
+# 4. Version control with git
+```
+
+## 🧪 Testing and Quality Assurance
+
+### Testing Standards
+- **Unit tests**: pytest for all modules
+- **Integration tests**: Full workflow testing
+- **API tests**: Mock external services
+- **Configuration tests**: Validate YAML and environment setup
+- **PRD tests**: Validate generated PRDs meet quality standards
+
+### Code Quality Tools
+- **Linting**: flake8, pylint for Python
+- **Formatting**: black, isort for Python
+- **Type checking**: mypy for static type analysis
+- **Documentation**: Comprehensive docstrings and README files
+- **PRD Quality**: Use validation tools to ensure PRD completeness
+
+## 🚀 Deployment and Production
+
+### Containerization
+```dockerfile
+# Standard Dockerfile pattern for newsense projects
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["python", "src/main.py"]
+```
+
+### Environment Management
+- **Development**: Local `.env` files
+- **Staging**: Environment-specific configurations
+- **Production**: Secure secret management systems
+
+### PRD Deployment
+- **Documentation Sync**: Keep PRDs updated with implementation
+- **Stakeholder Access**: Provide appropriate access to PRD documentation
+- **Version Control**: Maintain PRD history alongside code changes
+
+## 📖 Learning Resources
+
+### Documentation
+- **Anthropic Claude**: https://docs.anthropic.com/
+- **OpenAI API**: https://platform.openai.com/docs/
+- **Formation Repository**: Comprehensive examples and templates
+- **Claude Code Integration**: https://docs.anthropic.com/en/docs/claude-code/
+- **PRD-MCP-Server**: https://github.com/Saml1211/PRD-MCP-Server
+
+### Development Tools
+- **Claude Code**: Integrated development with context-aware assistance
+- **Jupyter**: Interactive development and research
+- **VS Code/Cursor**: Primary development environments with AI extensions
+- **PRD-MCP-Server**: Native PRD creation within development workflow
+
+## 🤝 Contributing
+
+Formation is designed to be extensible and customizable:
+
+1. **Fork the repository** and create your feature branch
+2. **Follow the newsense structure** for any new templates
+3. **Use believe configurations** for all settings
+4. **Include proper CLAUDE.md context** for Claude Code integration
+5. **Add comprehensive tests** and documentation
+6. **Create PRDs** for new features using the MCP integration
+
+## 📋 PRD Creation Guidelines
+
+### Using PRD-MCP-Server
+1. **Configure MCP Server**: Ensure PRD-MCP-Server is configured in Claude Desktop
+2. **Use Formation Templates**: Create PRDs using Formation-specific templates
+3. **Follow Naming Conventions**: Use organized-ai, believe, newsense, supabowl terminology
+4. **Version Control**: Track PRD changes with git
+5. **Validate Quality**: Use validation tools to ensure PRD completeness
+
+### PRD Best Practices
+- **Technical Focus**: PRDs should address developer and technical team needs
+- **Clear Requirements**: Specify technical requirements and implementation guidelines
+- **Integration Context**: Include MCP and Claude Code integration details
+- **Formation Alignment**: Ensure PRDs align with Formation framework philosophy
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+---
+
+**Formation: Because you slay at AI development! 🍋🤖**
+
+*Get in formation and build the future with organized, efficient AI development workflows and native PRD creation.*

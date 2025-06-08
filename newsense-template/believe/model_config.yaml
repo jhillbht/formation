@@ -1,0 +1,51 @@
+# Newsense AI Model Configuration
+
+models:
+  claude:
+    api_key: ${ANTHROPIC_API_KEY}
+    model: "claude-3-sonnet-20240229"
+    max_tokens: 4096
+    temperature: 0.7
+    timeout: 30
+
+  openai:
+    api_key: ${OPENAI_API_KEY}
+    model: "gpt-4"
+    max_tokens: 4096
+    temperature: 0.7
+    timeout: 30
+
+# Rate limiting to respect API limits
+rate_limits:
+  requests_per_minute: 60
+  tokens_per_minute: 100000
+  retry_attempts: 3
+  retry_delay: 1.0
+  exponential_backoff: true
+
+# Caching configuration
+cache:
+  enabled: true
+  ttl: 3600  # 1 hour in seconds
+  max_size: 1000  # Maximum number of cached responses
+  storage_path: "./data/cache"
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_path: "./logs/app.log"
+  max_file_size: "10MB"
+  backup_count: 5
+
+# Default prompt settings
+prompts:
+  default_system_message: "You are a helpful AI assistant."
+  max_context_length: 8192
+  truncate_strategy: "middle"  # start, middle, end
+  
+# Output settings
+output:
+  save_responses: true
+  output_directory: "./data/outputs"
+  timestamp_format: "%Y-%m-%d_%H-%M-%S"

@@ -1,0 +1,13 @@
+typescript::TypeScript language support
+ts-node::TypeScript execution engine for Node.js
+nodemon::Monitor for changes and restart server
+eslint::JavaScript/TypeScript linting
+prettier::Code formatter
+jupyter::Jupyter notebook interface
+create-react-app::React application generator
+next::React framework for production
+express::Fast Node.js web framework
+axios::HTTP client for API requests
+lodash::Utility library
+moment::Date manipulation library
+chalk::Terminal string styling

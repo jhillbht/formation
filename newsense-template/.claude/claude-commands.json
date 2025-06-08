@@ -1,0 +1,223 @@
+{
+  "commands": [
+    {
+      "name": "setup-mcp",
+      "description": "Configure remote MCP servers for this Newsense AI project",
+      "script": ".claude/commands/setup-mcp.sh",
+      "parameters": [
+        {
+          "name": "provider",
+          "description": "MCP provider (anthropic, openai, custom)",
+          "required": false,
+          "default": "anthropic"
+        },
+        {
+          "name": "endpoint",
+          "description": "MCP server endpoint URL",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "install-deps",
+      "description": "Intelligently install project dependencies based on believe configs",
+      "script": ".claude/commands/install-deps.sh",
+      "parameters": [
+        {
+          "name": "type",
+          "description": "Dependency type (python, node, all)",
+          "required": false,
+          "default": "all"
+        },
+        {
+          "name": "upgrade",
+          "description": "Upgrade existing packages",
+          "required": false,
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "understand",
+      "description": "Analyze and explain the Newsense AI project structure and integrations",
+      "script": ".claude/commands/understand.sh",
+      "parameters": [
+        {
+          "name": "focus",
+          "description": "Focus area (structure, ai-models, configs, all)",
+          "required": false,
+          "default": "all"
+        }
+      ]
+    },
+    {
+      "name": "refactor",
+      "description": "Intelligent refactoring with AI development patterns",
+      "script": ".claude/commands/refactor.sh",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "File or directory to refactor",
+          "required": true
+        },
+        {
+          "name": "pattern",
+          "description": "Refactoring pattern (extract-interface, modularize, optimize-ai)",
+          "required": false,
+          "default": "optimize-ai"
+        }
+      ]
+    },
+    {
+      "name": "compact",
+      "description": "Auto-compact context window while preserving AI development context",
+      "script": ".claude/commands/compact.sh",
+      "parameters": [
+        {
+          "name": "strategy",
+          "description": "Compaction strategy (preserve-ai-context, aggressive, minimal)",
+          "required": false,
+          "default": "preserve-ai-context"
+        }
+      ]
+    },
+    {
+      "name": "planning",
+      "description": "Enter planning mode - analysis and planning without code changes",
+      "script": ".claude/commands/planning.sh",
+      "parameters": [
+        {
+          "name": "scope",
+          "description": "Planning scope (feature, refactor, architecture, roadmap)",
+          "required": false,
+          "default": "feature"
+        }
+      ]
+    },
+    {
+      "name": "bug-hunt",
+      "description": "Systematic bug detection with AI-specific patterns",
+      "script": ".claude/commands/bug-hunt.sh",
+      "parameters": [
+        {
+          "name": "severity",
+          "description": "Bug severity focus (critical, all)",
+          "required": false,
+          "default": "all"
+        },
+        {
+          "name": "scope",
+          "description": "Scope to analyze (ai-clients, prompts, configs, all)",
+          "required": false,
+          "default": "all"
+        }
+      ]
+    },
+    {
+      "name": "checkpoint",
+      "description": "Create workflow checkpoint for safe experimentation",
+      "script": ".claude/commands/checkpoint.sh",
+      "parameters": [
+        {
+          "name": "name",
+          "description": "Checkpoint name/description",
+          "required": true
+        },
+        {
+          "name": "include-data",
+          "description": "Include data directory in checkpoint",
+          "required": false,
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "revert-files",
+      "description": "Quick file reversion to previous versions",
+      "script": ".claude/commands/revert-files.sh",
+      "parameters": [
+        {
+          "name": "files",
+          "description": "Files to revert (comma-separated or 'all')",
+          "required": true
+        },
+        {
+          "name": "commit",
+          "description": "Commit hash to revert to (default: last commit)",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "sync-believe",
+      "description": "Sync believe configurations from global templates",
+      "script": ".claude/commands/sync-believe.sh",
+      "parameters": [
+        {
+          "name": "config-type",
+          "description": "Config type to sync (model, prompts, logging, all)",
+          "required": false,
+          "default": "all"
+        }
+      ]
+    },
+    {
+      "name": "context-map",
+      "description": "Generate context map of key files and AI relationships",
+      "script": ".claude/commands/context-map.sh",
+      "parameters": [
+        {
+          "name": "output",
+          "description": "Output format (text, mermaid, json)",
+          "required": false,
+          "default": "text"
+        }
+      ]
+    },
+    {
+      "name": "worktree-status",
+      "description": "Show all worktrees and their development status",
+      "script": ".claude/commands/worktree-status.sh",
+      "parameters": []
+    },
+    {
+      "name": "ai-overview",
+      "description": "Get comprehensive overview of AI model integrations and usage",
+      "script": ".claude/commands/ai-overview.sh",
+      "parameters": [
+        {
+          "name": "detail",
+          "description": "Detail level (summary, detailed, comprehensive)",
+          "required": false,
+          "default": "detailed"
+        }
+      ]
+    },
+    {
+      "name": "optimize",
+      "description": "AI-focused performance and efficiency optimization",
+      "script": ".claude/commands/optimize.sh",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Optimization target (api-calls, caching, prompts, all)",
+          "required": false,
+          "default": "all"
+        }
+      ]
+    },
+    {
+      "name": "test-suggest",
+      "description": "Suggest comprehensive test coverage for AI components",
+      "script": ".claude/commands/test-suggest.sh",
+      "parameters": [
+        {
+          "name": "component",
+          "description": "Component to test (llm-clients, prompts, configs, all)",
+          "required": false,
+          "default": "all"
+        }
+      ]
+    }
+  ]
+}
